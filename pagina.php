@@ -10,7 +10,7 @@
 
     <div class="bg-white shadow-md p-6">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-gray-800">La mejor Torta de chocolate que peudes cocinar</h1>
+            <h1 class="text-3xl font-extrabold text-gray-800">La mejor Torta de chocolate que puedes cocinar</h1>
             <div class="bg-green-600 rounded-md p-4">
                 <span class="text-sm text-white text-center font-semibold">Tiempo:1 hora</span>
             </div>
@@ -59,4 +59,5 @@
         </div>
     </div>
 </body>
+
 </html>
