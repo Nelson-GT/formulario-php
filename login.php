@@ -6,8 +6,8 @@
     <title>Iniciar Sesión</title>
     <script src="/styles/tailwind.js"></script>
 </head>
-<body class="h-screen flex flex-col items-center justify-center">
-    <form action="login_logic.php" method="POST" class="flex flex-col border p-4 items-center justify-center max-w-md rounded-md shadow-lg">
+<body class="h-screen flex flex-col items-center justify-center bg-gray-50">
+    <form action="login_logic.php" method="POST" class="flex flex-col border p-4 items-center justify-center max-w-md rounded-md shadow-lg bg-white">
         <div class="flex flex-col p-3 gap-3">
             <h2 class="text-xl font-bold text-center">Iniciar Sesión</h2>
             <div class="gap-5">
