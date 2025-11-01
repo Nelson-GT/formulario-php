@@ -1,3 +1,10 @@
+<?php
+    $error_registro = '';
+    if (isset($_GET['error'])) {
+        $error_registro = urldecode($_GET['error']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +19,11 @@
             <h2 class="text-xl font-bold text-center">Iniciar Sesión</h2>
             <div class="gap-5">
                 <div class="flex flex-col my-5">
-                    <label for="correo">Correo Electrónico:</label>
+                    <label for="correo">Correo Electrónico</label>
                     <input type="email" id="correo" name="correo" required class="border p-2 rounded-md">
                 </div>
                 <div class="flex flex-col my-5">
-                    <label for="contrasena">Contraseña:</label>
+                    <label for="contrasena">Contraseña</label>
                     <input type="password" id="contrasena" name="contrasena" required class="border p-2 rounded-md">
                 </div>
             </div>
@@ -27,5 +34,12 @@
     <div class="flex flex-col items-center justify-center mt-5">
         <a href="index.php" class="text-purple-900 hover:underline text-center"> Aún no tienes cuenta?<br>Registrate aquí</a>
     </div>
+
+    <script>
+        const error = "<?php echo $error_registro; ?>";
+        if (error.length > 0) {
+            alert(error);
+        }
+    </script>   
 </body>
 </html>

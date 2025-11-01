@@ -3,5 +3,20 @@
         "nombre": "Administrador",
         "correo": "admin@admin.com",
         "contrasena": "$2y$10$PoD26nhvsrfIoFdsQ4sFqe88WU1wrRJdnk.qsghwzDt3P0kAJBEhO"
+    },
+    {
+        "nombre": "Yajaira",
+        "correo": "yaja@hotmail.com",
+        "contrasena": "$2y$10$nZmJqAR5VjT6XBqtBuP61uevLyV3oc7UtqjHgqUmvST5haNRzRejW"
+    },
+    {
+        "nombre": "luis",
+        "correo": "luis@gmail.com",
+        "contrasena": "$2y$10$2peXE5lk1O.UsqSfzlE16uwWBKDymYKxa/kvd5yze5hLG2hYWnZou"
+    },
+    {
+        "nombre": "adminis",
+        "correo": "adin@nistr.com",
+        "contrasena": "$2y$10$fHprflhU8cvRNhv2p7CPmuCq5E3/Tlc4wNo75PlWjaJfho3ceUXha"
     }
 ]

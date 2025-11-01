@@ -12,7 +12,7 @@
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 class="text-3xl font-extrabold text-gray-800">La mejor Torta de chocolate que puedes cocinar</h1>
             <div class="bg-green-600 rounded-md p-4">
-                <span class="text-sm text-white text-center font-semibold">Tiempo:1 hora</span>
+                <span class="text-sm text-white text-center font-semibold">Tiempo: 1 hora</span>
             </div>
         </div>
     </div>
@@ -53,11 +53,10 @@
                     <li>Combinar: Agrega gradualmente los ingredientes húmedos a los secos y mezcla hasta que estén justo combinados.</li>
                     <li>Hornear: Vierte la mezcla en los moldes preparados y hornea durante 30-35 minutos, o hasta que al insertar un palillo, este salga limpio.</li>
                     <li>Enfriar: Deja enfriar en los moldes por 10 minutos antes de desmoldar y transferir a una rejilla para enfriar completamente.</li>
-                    <li>Glasear: Una vez frío, glasea el pastel y ¡disfruta!</li>
+                    <li>Decorar: Una vez frío, decora la torta a tu gusto y disfruta</li>
                 </ol>
             </div>
         </div>
     </div>
 </body>
-
 </html>

@@ -5,7 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST['contrasena'] ?? '';
     $correo = strtolower($correo);
     if (empty(trim($correo)) || empty(trim($contrasena))) {
-        die("Error: Completa todos los campos para registrarte. <a href='login.php'>Volver</a>");
+        $error_mensaje = urlencode("Completa todos los campos.");
+        header("Location: login.php?error=" . $error_mensaje);
+        exit;
     }
     $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
     $archivo_json = 'usuarios.json';
@@ -25,11 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: pagina.php");
                 exit;
             } else {
-                die("Contraseña incorrecta, <a href='login.php'>vuelva a intentar</a>.<br>$contrasena_hash");
+                $error_mensaje = urlencode("Contraseña incorrecta, vuelve a intentarlo.");
+                header("Location: login.php?error=" . $error_mensaje);
+                exit;
             }
         }
     }
-    die("Usuario no encontrado.<br><a href='login.php'>Volver</a>.");
+    $error_mensaje = urlencode("Usuario no encontrado.");
+    header("Location: login.php?error=" . $error_mensaje);
+    exit;
 } else {
     header("Location: login.php");
     exit;

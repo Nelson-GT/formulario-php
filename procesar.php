@@ -7,23 +7,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $repite_contrasena = $_POST['repite_contrasena'] ?? '';
     $correo = strtolower($correo);
     if (empty(trim($nombre)) || empty(trim($correo)) || empty(trim($contrasena)) || empty(trim($repite_contrasena))) {
-        die("Error: Completa todos los campos para registrarte. <a href='index.php'>Volver</a>");
+        $error_mensaje = urlencode("No deben haber campos vacíos.");
+        header("Location: index.php?error=" . $error_mensaje);
+        exit;
     }
 
     $correo_dividido = explode("@", $correo);
     $correo_dividido2 = explode(".",$correo_dividido[1]);
     if (strlen($correo_dividido[0]) < 4 || strlen($correo_dividido2[0]) < 3 || strlen($correo_dividido2[1]) < 2) {
-        die("Error: Formato de correo incorrecto<br><a href='index.php'>Volver</a>");
+        $error_mensaje = urlencode("Formato de correo incorrecto.");
+        header("Location: index.php?error=" . $error_mensaje);
         exit;
     }
 
     if ($repite_contrasena != $contrasena) {
-        die("Error: Ambas contraseñas deben ser iguales.<br><a href='index.php'>Volver</a>");
+        $error_mensaje = urlencode("Ambas contraseñas deben ser iguales.");
+        header("Location: index.php?error=" . $error_mensaje);
         exit;
     }
     
     if (strlen($contrasena) < 4) {
-        die("Error: Tu contraseña debe ser más larga.<br><a href='index.php'>Volver</a>");
+        $error_mensaje = urlencode("Tu contraseña debe ser más larga (mínimo 4).");
+        header("Location: index.php?error=" . $error_mensaje);
         exit;
     }
     $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
@@ -45,16 +50,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     foreach ($usuarios as $usuario) {
         if ($usuario["correo"] === $correo) {
-            die("El correo introducido no es válido, intente con otro.<br><a href='index.php'>Volver</a>");
+            $error_mensaje = urlencode("El correo introducido ya existe, intente con otro.");
+            header("Location: index.php?error=" . $error_mensaje);
             exit;
         }
     }
     $usuarios[] = $nuevo_usuario;
     $json_data = json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     if (file_put_contents($archivo_json, $json_data)) {
-        echo 'Registro exitoso.<br><a href="login.php">Iniciar Sesión</a>';
+        header("Location: login.php");
+        exit;
     } else {
-        echo "Error: No se pudo escribir en el archivo. Cambiate a Windows.";
+        $error_mensaje = urlencode("Error, no se puede escribir en el archivo, intente más tarde.");
+        header("Location: index.php?error=" . $error_mensaje);
+        exit;
     }
 } else {
     header("Location: index.php");
